@@ -1,0 +1,2 @@
+module AccchartsHelper
+end

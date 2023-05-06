@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        
+        <li class="breadcrumb-item active" aria-current="page">Show Customer </li>
+      </ol>
+    </nav>    
+   
+  </div>
+</div>
+
+<div class="container-fluid page__container">
+  <div class="card card-form">
+    <div class="row no-gutters">
+      <div class="col-lg-1 card-body">
+       
+      </div>
+      <div class="col-lg-12 card-form__body card-body">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+<p>
+  <strong>Name:</strong>
+  <%= @cash.name %>
+</p>
+
+<p>
+  <strong>Bank acc no:</strong>
+  <%= @cash.bank_acc_no %>
+</p>
+
+<p>
+  <strong>Posting group:</strong>
+  <%= @cash.posting_group %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @cash.balance %>
+</p>
+
+
+
+</div>
+      </div>
+    </div>
+</div>
+
+<%= link_to 'Edit', edit_cash_path(@cash) %> |
+<%= link_to 'Back', cashes_path %>

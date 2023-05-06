@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        
+        <li class="breadcrumb-item active" aria-current="page">Show Customer </li>
+      </ol>
+    </nav>    
+   
+  </div>
+</div>
+
+<div class="container-fluid page__container">
+  <div class="card card-form">
+    <div class="row no-gutters">
+      <div class="col-lg-1 card-body">
+       
+      </div>
+      <div class="col-lg-12 card-form__body card-body">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @payment.payment_date %>
+</p>
+
+<p>
+  <strong>Paying account code:</strong>
+  <%= @payment.paying_account_code %>
+</p>
+
+<p>
+  <strong>Payment account description:</strong>
+  <%= @payment.payment_account_description %>
+</p>
+
+<p>
+  <strong>Prepared by:</strong>
+  <%= @payment.prepared_by %>
+</p>
+
+<p>
+  <strong>Mode of payment:</strong>
+  <%= @payment.mode_of_payment %>
+</p>
+
+<p>
+  <strong>Payment description:</strong>
+  <%= @payment.payment_description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @payment.status %>
+</p>
+
+<p>
+  <strong>Documentno:</strong>
+  <%= @payment.documentno %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @payment.release_date %>
+</p>
+
+<p>
+  <strong>Posted:</strong>
+  <%= @payment.posted %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Payee code:</strong>
+  <%= @payment.payee_code %>
+</p>
+
+<p>
+  <strong>Payee name:</strong>
+  <%= @payment.payee_name %>
+</p>
+
+<p>
+  <strong>Account type:</strong>
+  <%= @payment.account_type %>
+</p>
+
+<p>
+  <strong>Category type:</strong>
+  <%= @payment.category_type %>
+</p>
+
+
+</div>
+      </div>
+    </div>
+</div>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Acccharts</h1>
+
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-customer-name"]'>
+  
+  <%# <div class="search-form search-form--light m-3">
+    <input type="text" class="form-control search" placeholder="Search">
+    <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+  </div>
+   %>
+  <table class="table mb-0 thead-border-top-0">
+  <thead>
+    <tr>
+      <th>Account name</th>
+      <th>Type</th>
+      <th>Categoty</th>
+      <th>Class</th>
+      <th>Balance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acccharts.each do |accchart| %>
+      <tr>
+        <td><%= accchart.account_name %></td>
+        <td><%= accchart.type %></td>
+        <td><%= accchart.categoty %></td>
+        <td><%= accchart.class %></td>
+        <td><%= accchart.balance %></td>
+        <td><%= link_to 'Show', accchart %></td>
+        <td><%= link_to 'Edit', edit_accchart_path(accchart) %></td>
+        <td><%= link_to 'Destroy', accchart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ </div>
+ </div>
+<br>
+
+<%= link_to 'New Accchart', new_accchart_path %>

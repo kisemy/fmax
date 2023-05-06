@@ -1,0 +1,858 @@
+
+<div class="container-fluid page__container">
+  <div class="page__heading d-flex align-items-center">
+    <div class="flex">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+      <h1 class="m-0">Dashboard</h1>
+    </div>
+    <div class="flatpickr-wrapper ml-3">
+      <div
+        id="recent_orders_date"
+        data-toggle="flatpickr" 
+        data-flatpickr-wrap="true"
+        data-flatpickr-mode="range" 
+        data-flatpickr-alt-format="d/m/Y" 
+        data-flatpickr-date-format="d/m/Y">
+        <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2023 to 20/05/2023</a>
+        <input class="flatpickr-hidden-input" type="hidden" value="13/03/2023 to 20/03/2023" data-input>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid page__container">
+
+
+  <div class="row card-group-row">
+    <div class="col-lg-4 col-md-6 card-group-row__col">
+      <div class="card card-group-row__card">
+        <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+          <div class="flex">
+            <div class="card-header__title mb-2">Total sales</div>
+            <div class="text-amount">&dollar;82,99</div>
+          </div>
+          <div class="ml-3 d-flex flex-column align-items-end text-right">
+            <a href="" class="mb-2">View</a>
+            <div class="text-stats text-success">2.6% <i class="material-icons">arrow_upward</i></div>
+          </div>
+        </div>
+        <div class="card-body flex-0">
+          <small class="d-flex align-items-center font-weight-bold text-muted mb-1">
+            <span class="flex text-body">Online Store</span>
+            <span class="mx-3">&dollar;50.99</span>
+            <span class="d-flex align-items-center"><i class="material-icons text-success icon-16pt mr-1">arrow_upward</i> 3.2%</span>
+          </small>
+          <small class="d-flex align-items-center font-weight-bold text-muted">
+            <span class="flex text-body">Facebook</span>
+            <span class="mx-3">&dollar;32.00</span>
+            <span class="d-flex align-items-center"><i class="material-icons text-danger icon-16pt mr-1">arrow_downward</i> 7.0%</span>
+          </small>
+        </div>
+        <div class="card-body text-muted flex d-flex align-items-center">
+          <div class="chart w-100" style="height: 200px;">
+            <canvas id="totalSalesChart">
+              <span style="font-size: 1rem;"><strong>Total Sales</strong> chart goes here.</span>
+            </canvas>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+   
+
+
+
+    <div class="col-lg-4 col-md-12 card-group-row__col">
+      <div class="card card-group-row__card">
+        <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+          <div class="flex">
+            <div class="card-header__title mb-2">Repeat customer</div>
+            <div class="text-amount">5.43%</div>
+          </div>
+          <div class="ml-3 d-flex flex-column align-items-end text-right">
+            <a href="" class="mb-2">View</a>
+            <div class="text-stats text-success">2.6% <i class="material-icons">arrow_upward</i></div>
+          </div>
+        </div>
+        <div class="card-body text-muted flex d-flex align-items-center">
+          <div class="chart w-100" style="height: 250px;">
+            <canvas id="repeatCustomerRateChart">
+              <span style="font-size: 1rem;"><strong>Repeat Customer Rate</strong> chart goes here.</span>
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      
+      <div class="card">
+        <div class="card-header bg-white d-flex align-items-center">
+          <h4 class="card-header__title flex m-0">Current Sales</h4>
+          <div
+            data-toggle="flatpickr" 
+            data-flatpickr-wrap="true"
+            data-flatpickr-static="true" 
+            data-flatpickr-mode="range" 
+            data-flatpickr-alt-format="d/m/Y" 
+            data-flatpickr-date-format="d/m/Y">
+            <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span class="text-muted mx-1">to</span> 20/03/2018</a>
+            <input class="flatpickr-hidden-input" type="hidden" value="13/03/2018 to 20/03/2018" data-input>
+          </div>
+        </div>
+        <div class="card-body text-muted">
+          <div class="chart" style="height: calc(248px);">
+            <canvas id="earningsTrafficChart">
+              <span style="font-size: 1rem;"><strong>Website Traffic / Earnings</strong> area chart goes here.</span>
+            </canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-4">
+
+      <% sales = [
+        {
+          month: 'January',
+          min: '10,000',
+          max: '20,000',
+          progress: 52,
+          progress_color: 'success'
+        },
+        {
+          month: 'February',
+          min: '8,250',
+          max: '5,230',
+          progress: 100,
+          progress_color: 'success'
+        },
+        {
+          month: 'March',
+          min: '1,150',
+          max: '8,120',
+          progress: 22,
+          progress_color: 'danger'
+        },
+        {
+          month: 'April',
+          min: '4,625',
+          max: '11,450',
+          progress: 40,
+          progress_color: 'warning'
+        },
+        {
+          month: 'May',
+          min: '5,875',
+          max: '12,600',
+          progress: 45,
+          progress_color: 'warning'
+        }
+      ] %>
+      
+
+
+
+ 
+  
+
+
+<% content_for :footer_scripts do %>
+<script>
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+
+
+  // CHART SAMPLES
+  Charts.init();
+
+
+  var TotalSales = function(id, type = 'line', options = {}) {
+    options = Chart.helpers.merge({
+      title: {
+        display: true,
+        fontSize: 12,
+        fontColor: 'rgba(54, 76, 102, 0.54)',
+        position: 'top',
+        text: 'SALES OVER TIME'
+      },
+      legend: {
+        display: true,
+        align: 'start',
+        labels: {
+          usePointStyle: false,
+          padding: 16,
+          boxWidth: 16,
+        }
+      },
+      elements: {
+        line: {
+          fill: 'start',
+          backgroundColor: settings.charts.colors.area
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            stepSize: 10,
+            callback: function(item) {
+              return "Kshs" + item
+            }
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            padding: 4,
+            callback: function(item) {
+              return item
+            },
+          },
+          gridLines: {
+            display: false
+          },
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'D/MM'
+            },
+            stepSize: 2,
+            maxTicksLimit: 7,
+            autoSkip: false,
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">Kshs' + o + "</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = []
+
+    // Create a date range for the last 7 days
+    var start = moment().subtract(6, 'days').format('YYYY-MM-DD') // 7 days ago
+    var end = moment().format('YYYY-MM-DD') // today
+    var range = moment.range(start, end)
+
+    // Create the graph data
+    // Iterate the date range and assign a random value for each day
+    for (let moment of range.by('days')) {
+      data.push({
+        y: getRandomInt(2, 40),
+        x: moment.toDate()
+      })
+    }
+
+    var data = {
+      datasets: [{
+        label: "Total Sales",
+        data
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var TotalVisitors = function(id, type = 'roundedBar', options = {}) {
+    options = Chart.helpers.merge({
+      title: {
+        display: true,
+        fontSize: 12,
+        fontColor: 'rgba(54, 76, 102, 0.54)',
+        position: 'top',
+        text: 'VISITORS OVER TIME'
+      },
+      legend: {
+        display: true,
+        align: 'start',
+        labels: {
+          usePointStyle: false,
+          padding: 16,
+          boxWidth: 16,
+        }
+      },
+      barRoundness: 1.2,
+      barThickness: 8,
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(a) {
+              if (!(a % 10))
+                return a + "k"
+            }
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            padding: 4,
+            callback: function(item) {
+              return item
+            },
+          },
+          offset: true,
+          gridLines: {
+            display: false
+          },
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'D/MM'
+            },
+            stepSize: 2,
+            maxTicksLimit: 7
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">' + o + "k</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = []
+
+    // Create a date range for the last 7 days
+    var start = moment().subtract(6, 'days').format('YYYY-MM-DD') // 7 days ago
+    var end = moment().format('YYYY-MM-DD') // today
+    var range = moment.range(start, end)
+
+    // Create the graph data
+    // Iterate the date range and assign a random value for each day
+    for (let moment of range.by('days')) {
+      data.push({
+        y: getRandomInt(10, 30),
+        x: moment.toDate()
+      })
+    }
+
+    var data = {
+      datasets: [{
+        label: "Total Visitors",
+        data,
+        barPercentage: 0.5,
+        barThickness: 20,
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var RepeatCustomerRate = function(id, type = 'line', options = {}) {
+    options = Chart.helpers.merge({
+      elements: {
+        line: {
+          tension: 0,
+        }
+      },
+      title: {
+        display: true,
+        fontSize: 12,
+        fontColor: 'rgba(54, 76, 102, 0.54)',
+        position: 'top',
+        text: 'CUSTOMERS'
+      },
+      legend: {
+        display: true,
+        align: 'start',
+        labels: {
+          usePointStyle: false,
+          padding: 16,
+          boxWidth: 16,
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            autoSkip: false,
+            autoSkipPadding: 0,
+            padding: 4,
+            maxTicksLimit: 4,
+            callback: function(item) {
+              return item + "%"
+            }
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            padding: 4,
+            callback: function(item) {
+              return item
+            },
+          },
+          gridLines: {
+            display: false
+          },
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'D/MM'
+            },
+            stepSize: 2,
+            maxTicksLimit: 7,
+            autoSkip: false,
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">' + o + "%</span>"
+          }
+        }
+      }
+    }, options)
+
+    var firstTimeData = []
+    var returningData = []
+
+    // Create a date range for the last 7 days
+    var start = moment().subtract(6, 'days').format('YYYY-MM-DD') // 7 days ago
+    var end = moment().format('YYYY-MM-DD') // today
+    var range = moment.range(start, end)
+
+    // Create the graph data
+    // Iterate the date range and assign a random value for each day
+    for (let moment of range.by('days')) {
+      firstTimeData.push({
+        y: getRandomInt(0, 5),
+        x: moment.toDate()
+      })
+
+      returningData.push({
+        y: getRandomInt(5, 10),
+        x: moment.toDate()
+      })
+    }
+
+    var data = {
+      datasets: [{
+        label: "First time",
+        data: firstTimeData,
+        borderWidth: 2,
+        borderColor: settings.colors.primary[400],
+        backgroundColor: settings.colors.primary[400],
+        pointBackgroundColor: settings.colors.primary[400]
+      }, {
+        label: "Returning",
+        data: returningData,
+        borderWidth: 2,
+        borderColor: settings.colors.success[400],
+        backgroundColor: settings.colors.success[400],
+        pointBackgroundColor: settings.colors.success[400]
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var TotalOrders = function(id, type = 'line', options = {}) {
+    options = Chart.helpers.merge({
+      title: {
+        display: true,
+        fontSize: 12,
+        fontColor: 'rgba(54, 76, 102, 0.54)',
+        position: 'top',
+        text: 'ORDERS OVER TIME'
+      },
+      legend: {
+        display: true,
+        align: 'start',
+        labels: {
+          usePointStyle: false,
+          padding: 16,
+          boxWidth: 16,
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            stepSize: 1,
+            callback: function(item) {
+              return item
+            }
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            padding: 4,
+            callback: function(item) {
+              return item
+            },
+          },
+          gridLines: {
+            display: false
+          },
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'D/MM'
+            },
+            stepSize: 2,
+            maxTicksLimit: 7,
+            autoSkip: false,
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">' + o + "</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = []
+
+    // Create a date range for the last 7 days
+    var start = moment().subtract(6, 'days').format('YYYY-MM-DD') // 7 days ago
+    var end = moment().format('YYYY-MM-DD') // today
+    var range = moment.range(start, end)
+
+    // Create the graph data
+    // Iterate the date range and assign a random value for each day
+    for (let moment of range.by('days')) {
+      data.push({
+        y: getRandomInt(0, 2),
+        x: moment.toDate()
+      })
+    }
+
+    var data = {
+      datasets: [{
+        label: "Total Orders",
+        data
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var AverageOrderValue = function(id, type = 'line', options = {}) {
+    options = Chart.helpers.merge({
+      title: {
+        display: true,
+        fontSize: 12,
+        fontColor: 'rgba(54, 76, 102, 0.54)',
+        position: 'top',
+        text: 'ORDER VALUE'
+      },
+      legend: {
+        display: true,
+        align: 'start',
+        labels: {
+          usePointStyle: false,
+          padding: 16,
+          boxWidth: 16,
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            stepSize: 10,
+            callback: function(item) {
+              return "Kshs" + item
+            }
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            padding: 4,
+            callback: function(item) {
+              return item
+            },
+          },
+          gridLines: {
+            display: false
+          },
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'D/MM'
+            },
+            stepSize: 2,
+            maxTicksLimit: 7,
+            autoSkip: false,
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">Kshs' + o + "</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = []
+
+    // Create a date range for the last 7 days
+    var start = moment().subtract(6, 'days').format('YYYY-MM-DD') // 7 days ago
+    var end = moment().format('YYYY-MM-DD') // today
+    var range = moment.range(start, end)
+
+    // Create the graph data
+    // Iterate the date range and assign a random value for each day
+    for (let moment of range.by('days')) {
+      data.push({
+        y: getRandomInt(0, 50),
+        x: moment.toDate()
+      })
+    }
+
+    var data = {
+      datasets: [{
+        label: "Order Value",
+        data
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var VisitsByDevice = function(id, type = 'doughnut', options = {}) {
+    options = Chart.helpers.merge({
+      tooltips: {
+        callbacks: {
+          title: function(a, e) {
+            return e.labels[a[0].index]
+          },
+          label: function(a, e) {
+            var t = "";
+            return t += '<span class="popover-body-value">' + e.datasets[0].data[a.index] + " visits</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = {
+      labels: ["Desktop", "Mobile", "Tablet"],
+      datasets: [{
+        data: [267, 184, 0],
+        backgroundColor: [settings.colors.success[400], settings.colors.primary[500], settings.colors.gray[300]],
+        hoverBorderColor: "dark" == settings.charts.colorScheme ? settings.colors.gray[800] : settings.colors.white
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+  
+  var EarningsTraffic = function(id, type = 'line', options = {}) {
+    options = Chart.helpers.merge({
+      elements: {
+        line: {
+          fill: 'start',
+          backgroundColor: settings.charts.colors.area
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(a) {
+              if (!(a % 10))
+                return "Kshs" + a + "k"
+            }
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">Kshs' + o + "k</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [{
+        label: "Traffic",
+        data: [10, 2, 5, 15, 10, 12, 15, 25, 22, 30, 25, 40]
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+
+  var LocationDoughnut = function(id, type = 'doughnut', options = {}) {
+    options = Chart.helpers.merge({
+      tooltips: {
+        callbacks: {
+          title: function(a, e) {
+            return e.labels[a[0].index]
+          },
+          label: function(a, e) {
+            var t = "";
+            return t += '<span class="popover-body-value">' + e.datasets[0].data[a.index] + "%</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = {
+      labels: ["United States", "United Kingdom", "Germany", "India"],
+      datasets: [{
+        data: [25, 25, 15, 35],
+        backgroundColor: [settings.colors.success[400], settings.colors.danger[400], settings.colors.primary[500], settings.colors.gray[300]],
+        hoverBorderColor: "dark" == settings.charts.colorScheme ? settings.colors.gray[800] : settings.colors.white
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  var TrafficBar = function(id, type = 'roundedBar', options = {}) {
+    options = Chart.helpers.merge({
+      barRoundness: 1.2,
+      scales: {
+        yAxes: [{
+          ticks: {
+            callback: function(a) {
+              if (!(a % 10))
+                return a + "k"
+            }
+          }
+        }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(a, e) {
+            var t = e.datasets[a.datasetIndex].label || "",
+                o = a.yLabel,
+                r = "";
+            return 1 < e.datasets.length && (r += '<span class="popover-body-label mr-auto">' + t + "</span>"), r += '<span class="popover-body-value">' + o + "k</span>"
+          }
+        }
+      }
+    }, options)
+
+    var data = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [{
+        label: "Sales",
+        data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32],
+        barPercentage: 0.5,
+        barThickness: 20,
+      }]
+    }
+
+    Charts.create(id, type, options, data)
+  }
+
+  Kshs('.stats-chart').each((index, element) => {
+    let ctx = element.getContext('2d')
+    let stats_data = []
+
+    for (var i = 6; i >= 0; i--) {
+      stats_data.push(getRandomInt(100, 300));
+    }
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels:
+        [
+        "01", "02", "03", "04",
+        "05", "06", "07", "08"
+        ],
+        datasets: [{
+          data: stats_data,
+          borderWidth: 2,
+          borderColor: settings.colors.primary[400],
+          backgroundColor: settings.colors.primary[50],
+          pointBackgroundColor: settings.colors.primary[400]
+        }]
+      },
+      options: {
+        elements: { point: { radius: 0 } },
+        tooltips: {
+          enabled: false
+        },
+        legend: {
+          display: false,
+          labels: { display: false }
+        },
+        scales: {
+          xAxes: [{
+            gridLines: {
+              display: false,
+              // zeroLineColor: colors.border_color
+            },
+            ticks: {
+              display: false
+            }
+          }],
+          yAxes: [{
+            gridLines: {
+              display: false,
+              // zeroLineColor: colors.border_color
+            },
+            ticks: {
+              display: false
+            }
+          }]
+        }
+      }
+    });
+  });
+
+  ///////////////////
+  // Create Charts //
+  ///////////////////
+  
+  TotalSales('#totalSalesChart')
+ 
+  
+  TotalOrders('#totalOrdersChart')
+  AverageOrderValue('#averageOrderValueChart')
+
+
+  TrafficBar('#trafficBarChart')
+  
+  EarningsTraffic('#earningsTrafficChart')
+  LocationDoughnut('#locationDoughnutChart')  
+
+
+</script>
+<% end %>

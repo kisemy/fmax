@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account name:</strong>
+  <%= @accchart.account_name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @accchart.type %>
+</p>
+
+<p>
+  <strong>Categoty:</strong>
+  <%= @accchart.categoty %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @accchart.class %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @accchart.balance %>
+</p>
+
+<%= link_to 'Edit', edit_accchart_path(@accchart) %> |
+<%= link_to 'Back', acccharts_path %>
