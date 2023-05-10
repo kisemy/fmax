@@ -10,6 +10,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( invoice.scss )
 
+Rails.application.config.assets.precompile += %w( sessions.css staff.css marketing.css )
+
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
