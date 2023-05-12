@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'sprockets'
 #, '~> 3.7.2'
 
-
+gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'devise'
 
 
