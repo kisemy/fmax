@@ -33,7 +33,7 @@ gem 'sprockets'
 gem 'devise'
 
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
