@@ -5,7 +5,7 @@
 
 //= require flowdash
 
-//= require jquery-ui
+// require jquery-ui
 
 //import Rails from "@rails/ujs"
 //import Turbolinks from "turbolinks"
@@ -17,7 +17,4 @@
 //ActiveStorage.start()
 
 // require flowdashrequire("@rails/ujs").start();
-import Rails from "@rails/ujs";
-window.Rails = Rails;
-require("@rails/ujs").start();
-require("jquery-ui")
+

@@ -29,7 +29,7 @@ gem "sprockets-rails"
 #gem 'sprockets'
 #, '~> 3.7.2'
 
-gem 'jquery-ui-rails', '~> 5.0.5'
+#gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'devise'
 
 
