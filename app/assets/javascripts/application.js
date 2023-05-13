@@ -16,4 +16,8 @@
 //Turbolinks.start()
 //ActiveStorage.start()
 
-// require flowdash
+// require flowdashrequire("@rails/ujs").start();
+import Rails from "@rails/ujs";
+window.Rails = Rails;
+require("@rails/ujs").start();
+require("jquery-ui")
