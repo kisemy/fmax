@@ -24,8 +24,8 @@
 //= require formvalidation/bootstrap4.min
 //= require_tree .
 
-import '../src/filename.js';
-import 'bootstrap/dist/js/bootstrap';
+//import '../src/filename.js';
+//import 'bootstrap/dist/js/bootstrap';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
