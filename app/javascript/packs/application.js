@@ -31,6 +31,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 
 
-console.log('Hello World from Webpacker')
+//console.log('Hello World from Webpacker')
 
-= javascript_pack_tag 'application'
+
