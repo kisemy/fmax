@@ -190,14 +190,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (4.0.0.rc3)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2)
@@ -215,7 +207,6 @@ GEM
       mini_portile2 (~> 2.8.0)
     strscan (3.0.6)
     thor (1.2.1)
-    tilt (2.1.0)
     timeout (0.3.2)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -262,7 +253,6 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.3)
-  sassc-rails
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   sprockets-rails
@@ -271,7 +261,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.0)
+  webpacker
   wicked_pdf
   wkhtmltopdf-binary
 
