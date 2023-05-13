@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 #gem 'font-awesome-sass', '~> 4.4.0'
 
-gem 'sprockets'
+#gem 'sprockets'
 #, '~> 3.7.2'
 
 gem 'jquery-ui-rails', '~> 5.0.5'
